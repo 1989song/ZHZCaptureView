@@ -39,9 +39,11 @@
     [scanView startMove];
     if (TARGET_OS_SIMULATOR) {
 //        self.stringValue =@"http://www.ebwing.com/wap/download/index.do?mobile=14759163407";//5578
-        self.stringValue =@"http://www.ebwing.com/wap/download/index.do?mobile=15259224604";//1004
+        self.stringValue =@"请在真机中运行！";//1004
         [self dismissViewControllerAnimated:YES completion:^{
-            self.myBlock(self.stringValue);
+            if (self.myBlock) {
+                self.myBlock(self.stringValue);
+            }
         }];
     }else{
         [self setUpAboutCapture];
